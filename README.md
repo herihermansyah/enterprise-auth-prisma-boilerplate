@@ -77,7 +77,7 @@ AUTH_TRUST_HOST=true
 AUTH_GOOGLE_ID="your_google_client_id"
 AUTH_GOOGLE_SECRET="your_google_client_secret"
 
-# Supabase Additional (Optional)
+# Supabase
 NEXT_PUBLIC_SUPABASE_API_URL="your_supabase_url"
 SUPABASE_API_SECRETE_KEY="your_supabase_key"
 
