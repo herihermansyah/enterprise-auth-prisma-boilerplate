@@ -44,6 +44,7 @@ export function LoginForm({className, ...props}: React.ComponentProps<"div">) {
       return;
     }
   };
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>

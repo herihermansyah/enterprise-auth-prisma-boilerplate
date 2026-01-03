@@ -9,37 +9,39 @@ export default auth(async (req) => {
   const role = req.auth?.user?.role;
   const {pathname} = req.nextUrl;
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1";
-  
 
   // ratelimit
 
   if (!isLoggedIn) {
-    if (pathname === "/login" && req.method === "POST") {
-      const {success} = await loginRateLimit.limit(ip);
-      if (!success)
-        return new Response(
-          JSON.stringify({
-            error: "Too many login attempts. Please wait 2 hours.",
-          }),
-          {
-            status: 429,
-            headers: {"Content-Type": "application/json"},
-          }
-        );
-    }
+    if (req.method === "POST") {
+      
+      if (pathname === "/login") {
+        const {success} = await loginRateLimit.limit(ip);
+        if (!success)
+          return new Response(
+            JSON.stringify({
+              error: "Too many login attempts. Please wait 2 hours.",
+            }),
+            {
+              status: 429,
+              headers: {"Content-Type": "application/json"},
+            }
+          );
+      }
 
-    if (pathname === "/signup" && req.method === "POST") {
-      const {success} = await registerRateLimit.limit(ip);
-      if (!success)
-        return new Response(
-          JSON.stringify({
-            error: "Too many attempts. Wait 10 hours.",
-          }),
-          {
-            status: 429,
-            headers: {"Content-Type": "application/json"},
-          }
-        );
+      if (pathname === "/signup") {
+        const {success} = await registerRateLimit.limit(ip);
+        if (!success)
+          return new Response(
+            JSON.stringify({
+              error: "Too many attempts. Wait 10 hours.",
+            }),
+            {
+              status: 429,
+              headers: {"Content-Type": "application/json"},
+            }
+          );
+      }
     }
   }
 
@@ -75,5 +77,5 @@ export default auth(async (req) => {
 });
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
