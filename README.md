@@ -8,13 +8,13 @@ A **Production-ready** Next.js 15 Authentication system designed for security, s
 
 ## 🚀 Key Features
 
-* **Next.js 16 (App Router)**: Utilizing the latest React 19 features and Server Components.
-* **Auth.js v5 (Beta)**: Modern, edge-compatible authentication (OAuth Google & Credentials).
-* **RBAC (Role-Based Access Control)**: Secure authorization levels for users and admins.
-* **Rate-Limiting**: Protection against Brute-Force and DDoS using **Upstash Redis**.
-* **Database**: PostgreSQL with **Prisma ORM** and Supabase integration.
-* **Security First**: Password hashing using `bcryptjs` and Zod-validated input.
-* **Modern UI**: Built with **TailwindCSS 4**, Shadcn UI components, and Dark Mode support.
+- **Next.js 16 (App Router)**: Utilizing the latest React 19 features and Server Components.
+- **Auth.js v5 (Beta)**: Modern, edge-compatible authentication (OAuth Google & Credentials).
+- **RBAC (Role-Based Access Control)**: Secure authorization levels for users and admins.
+- **Rate-Limiting**: Protection against Brute-Force and DDoS using **Upstash Redis**.
+- **Database**: PostgreSQL with **Prisma ORM** and Supabase integration.
+- **Security First**: Password hashing using `bcryptjs` and Zod-validated input.
+- **Modern UI**: Built with **TailwindCSS 4**, Shadcn UI components, and Dark Mode support.
 
 ---
 
@@ -22,26 +22,26 @@ A **Production-ready** Next.js 15 Authentication system designed for security, s
 
 ### **Core Framework**
 
-* **Next.js 16 & React 19**: Utilizing the newest compiler for optimized performance.
-* **TypeScript**: Ensuring type safety across the entire application.
+- **Next.js 16 & React 19**: Utilizing the newest compiler for optimized performance.
+- **TypeScript**: Ensuring type safety across the entire application.
 
 ### **Authentication & Security**
 
-* **Auth.js v5**: Handles session management and OAuth providers seamlessly.
-* **Bcryptjs**: Used for industrial-standard password hashing, ensuring that even if the database is compromised, user passwords remain secure.
-* **Upstash Redis Rate-Limiting**: A global security layer that limits request rates per IP, preventing automated bot attacks on your login/sign-up endpoints.
+- **Auth.js v5**: Handles session management and OAuth providers seamlessly.
+- **Bcryptjs**: Used for industrial-standard password hashing, ensuring that even if the database is compromised, user passwords remain secure.
+- **Upstash Redis Rate-Limiting**: A global security layer that limits request rates per IP, preventing automated bot attacks on your login/sign-up endpoints.
 
 ### **Database & State**
 
-* **Prisma ORM**: Type-safe database client for PostgreSQL.
-* **Supabase**: Managed database infrastructure for production reliability.
-* **Zod**: Schema-first validation for API requests and environment variables.
+- **Prisma ORM**: Type-safe database client for PostgreSQL.
+- **Supabase**: Managed database infrastructure for production reliability.
+- **Zod**: Schema-first validation for API requests and environment variables.
 
 ### **UI/UX Components**
 
-* **TailwindCSS 4**: Leveraging the latest engine for ultra-fast styling.
-* **Radix UI**: Accessible, unstyled primitives for UI components.
-* **Sonner**: Clean and intuitive toast notifications.
+- **TailwindCSS 4**: Leveraging the latest engine for ultra-fast styling.
+- **Radix UI**: Accessible, unstyled primitives for UI components.
+- **Sonner**: Clean and intuitive toast notifications.
 
 ---
 
@@ -49,8 +49,8 @@ A **Production-ready** Next.js 15 Authentication system designed for security, s
 
 ### 1. Prerequisites
 
-* Node.js 20+
-* PNPM (recommended)
+- Node.js 20+
+- PNPM (recommended)
 
 ### 2. Installation
 
@@ -106,7 +106,7 @@ pnpm dev
 
 ## 🛡️ Security Implementation
 
-Project ini menggunakan **Middleware security layer** yang memeriksa setiap request sebelum mencapai server. Session divalidasi secara real-time, dan **Rate-Limiter** akan secara otomatis memblokir IP yang melakukan request berlebihan dalam waktu singkat (contoh: 10 request per 10 detik pada route login).
+This project implements a Middleware security layer that intercepts and inspects every request before it reaches the server. Sessions are validated in real-time, and a robust Rate-Limiter automatically throttles or blocks IP addresses making excessive requests within a short window (e.g., 10 requests per 10 seconds on the login route) to mitigate brute-force and DDoS attempts.
 
 ---
 
@@ -114,9 +114,24 @@ Project ini menggunakan **Middleware security layer** yang memeriksa setiap requ
 
 **Heri Hermansyah**
 
-* LinkedIn: [@heri-hermansyah](https://www.linkedin.com/in/heri-hermansyah/)
-* Location: Indonesia 🇮🇩
+- LinkedIn: [@heri-hermansyah](https://www.linkedin.com/in/heri-hermansyah/)
+- Location: Indonesia 🇮🇩
 
 ---
 
-*Developed with ❤️ as a robust foundation for modern web applications.*
+_Developed with ❤️ as a robust foundation for modern web applications._
+
+---
+
+## SCREENSHOTS
+
+![Dashboard](./ss/1.png)
+![Dashboard](./ss/2.png)
+![Dashboard](./ss/3.png)
+![Dashboard](./ss/4.png)
+![Dashboard](./ss/5.png)
+
+---
+
+📜 License
+This project is open-source under the MIT License.
