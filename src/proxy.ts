@@ -9,6 +9,7 @@ export default auth(async (req) => {
   const role = req.auth?.user?.role;
   const {pathname} = req.nextUrl;
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1";
+  
 
   // ratelimit
 
