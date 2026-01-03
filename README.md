@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛡️ Enterprise Auth Prisma Boilerplate
 
-## Getting Started
+A **Production-ready** Next.js 15 Authentication system designed for security, scalability, and developer experience. This boilerplate implements a robust security layer featuring Auth.js v5, advanced Rate-Limiting, and Role-Based Access Control (RBAC).
 
-First, run the development server:
+**[Live Demo](https://enterprise-auth-prisma-boilerplate.vercel.app/)** | **[Author LinkedIn](https://www.linkedin.com/in/heri-hermansyah/)**
+
+---
+
+## 🚀 Key Features
+
+* **Next.js 16 (App Router)**: Utilizing the latest React 19 features and Server Components.
+* **Auth.js v5 (Beta)**: Modern, edge-compatible authentication (OAuth Google & Credentials).
+* **RBAC (Role-Based Access Control)**: Secure authorization levels for users and admins.
+* **Rate-Limiting**: Protection against Brute-Force and DDoS using **Upstash Redis**.
+* **Database**: PostgreSQL with **Prisma ORM** and Supabase integration.
+* **Security First**: Password hashing using `bcryptjs` and Zod-validated input.
+* **Modern UI**: Built with **TailwindCSS 4**, Shadcn UI components, and Dark Mode support.
+
+---
+
+## 🛠️ Tech Stack & Library Deep-Dive
+
+### **Core Framework**
+
+* **Next.js 16 & React 19**: Utilizing the newest compiler for optimized performance.
+* **TypeScript**: Ensuring type safety across the entire application.
+
+### **Authentication & Security**
+
+* **Auth.js v5**: Handles session management and OAuth providers seamlessly.
+* **Bcryptjs**: Used for industrial-standard password hashing, ensuring that even if the database is compromised, user passwords remain secure.
+* **Upstash Redis Rate-Limiting**: A global security layer that limits request rates per IP, preventing automated bot attacks on your login/sign-up endpoints.
+
+### **Database & State**
+
+* **Prisma ORM**: Type-safe database client for PostgreSQL.
+* **Supabase**: Managed database infrastructure for production reliability.
+* **Zod**: Schema-first validation for API requests and environment variables.
+
+### **UI/UX Components**
+
+* **TailwindCSS 4**: Leveraging the latest engine for ultra-fast styling.
+* **Radix UI**: Accessible, unstyled primitives for UI components.
+* **Sonner**: Clean and intuitive toast notifications.
+
+---
+
+## ⚙️ Getting Started
+
+### 1. Prerequisites
+
+* Node.js 20+
+* PNPM (recommended)
+
+### 2. Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/username/enterprise-auth-prisma-boilerplate.git
+cd enterprise-auth-prisma-boilerplate
+pnpm install
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env` file in the root directory and fill in the following credentials:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+# Database (Supabase/PostgreSQL)
+DATABASE_URL="your_postgresql_url"
 
-## Learn More
+# Authentication (Auth.js)
+AUTH_SECRET="run_openssl_rand_-base64_32"
+AUTH_TRUST_HOST=true
 
-To learn more about Next.js, take a look at the following resources:
+# Google OAuth
+AUTH_GOOGLE_ID="your_google_client_id"
+AUTH_GOOGLE_SECRET="your_google_client_secret"
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Supabase Additional (Optional)
+NEXT_PUBLIC_SUPABASE_API_URL="your_supabase_url"
+SUPABASE_API_SECRETE_KEY="your_supabase_key"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Rate Limiting (Upstash Redis)
+UPSTASH_REDIS_REST_URL="your_redis_url"
+UPSTASH_REDIS_REST_TOKEN="your_redis_token"
 
-## Deploy on Vercel
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 4. Database Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx prisma generate
+npx prisma db push
+
+```
+
+### 5. Running the App
+
+```bash
+pnpm dev
+
+```
+
+---
+
+## 🛡️ Security Implementation
+
+Project ini menggunakan **Middleware security layer** yang memeriksa setiap request sebelum mencapai server. Session divalidasi secara real-time, dan **Rate-Limiter** akan secara otomatis memblokir IP yang melakukan request berlebihan dalam waktu singkat (contoh: 10 request per 10 detik pada route login).
+
+---
+
+## 👤 Author
+
+**Heri Hermansyah**
+
+* LinkedIn: [@heri-hermansyah](https://www.linkedin.com/in/heri-hermansyah/)
+* Location: Indonesia 🇮🇩
+
+---
+
+*Developed with ❤️ as a robust foundation for modern web applications.*
